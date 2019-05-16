@@ -7,8 +7,17 @@
     "test": "jest"
   },
   "dependencies": {
+    "aws-amplify": "^1.1.28",
+    "aws-amplify-react": "^2.3.8",
+    "aws-appsync": "^1.8.0",
+    "aws-appsync-react": "^1.2.8",
+    "graphql-anywhere": "^4.2.1",
+    "graphql-tag": "^2.10.1",
     "react": "16.8.3",
-    "react-native": "0.59.8"
+    "react-apollo": "^2.5.5",
+    "react-native": "0.59.8",
+    "styled-components": "^4.2.0",
+    "styled-system": "^4.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
