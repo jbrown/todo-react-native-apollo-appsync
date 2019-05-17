@@ -1,49 +1,32 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from "react";
+import { Text } from "react-native";
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import Client from "aws-appsync";
+import { ApolloProvider } from "react-apollo";
+import { Rehydrated } from "aws-appsync-react";
+import awsConfig from "./aws-exports";
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+const client = new Client({
+  url: awsConfig.aws_appsync_graphqlEndpoint,
+  region: awsConfig.aws_appsync_region,
+  auth: {
+    type: awsConfig.aws_appsync_authenticationType,
+    apiKey: awsConfig.aws_appsync_apiKey
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
 });
+
+const App = () => {
+  return <Text>Welcome to React Native!</Text>;
+};
+
+const WithProvider = () => {
+  return (
+    <ApolloProvider client={client}>
+      <Rehydrated>
+        <App />
+      </Rehydrated>
+    </ApolloProvider>
+  );
+};
+
+export default WithProvider;
