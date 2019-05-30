@@ -19,7 +19,7 @@
     "react-native-gesture-handler": "^1.2.2",
     "react-navigation": "^3.11.0",
     "styled-components": "^4.2.0",
-    "styled-system": "^4.2.2"
+    "styled-system": "^4.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
