@@ -6,7 +6,7 @@ import { ApolloProvider } from "react-apollo";
 import { Rehydrated } from "aws-appsync-react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import awsConfig from "../aws-exports";
-import { ListSidebar } from "./features/List";
+import { ListDetail, ListSidebar } from "./features/List";
 
 const client = new Client({
   url: awsConfig.aws_appsync_graphqlEndpoint,
@@ -20,6 +20,9 @@ const client = new Client({
 const AppNavigator = createStackNavigator({
   Sidebar: {
     screen: ListSidebar
+  },
+  ListDetail: {
+    screen: ListDetail
   }
 });
 
