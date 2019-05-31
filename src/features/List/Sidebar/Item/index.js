@@ -1,11 +1,11 @@
 import React from "react";
 import gql from "graphql-tag";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
-export const ListSidebarItem = ({ isSelected, name, tasks, onClick }) => (
-  <View>
+export const ListSidebarItem = ({ isSelected, name, onClick }) => (
+  <TouchableOpacity onPress={onClick}>
     <Text>{name}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
 ListSidebarItem.fragment = gql`

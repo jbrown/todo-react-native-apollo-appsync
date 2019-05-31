@@ -5,7 +5,7 @@ import { filter } from "graphql-anywhere";
 import { Text, View } from "react-native";
 import { ListSidebarItem } from "./Item";
 
-export const ListSidebar = () => {
+export const ListSidebar = ({ navigation }) => {
   return (
     <Query
       query={sidebarQuery}
@@ -27,6 +27,12 @@ export const ListSidebar = () => {
               <ListSidebarItem
                 key={item.id}
                 {...filter(ListSidebarItem.fragment, item)}
+                onClick={() =>
+                  navigation.push("ListDetail", {
+                    id: item.id,
+                    name: item.name
+                  })
+                }
               />
             ))}
           </View>
