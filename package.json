@@ -11,7 +11,7 @@
     "aws-amplify-react": "^2.3.8",
     "aws-appsync": "^1.8.0",
     "aws-appsync-react": "^1.2.8",
-    "graphql-anywhere": "^4.2.2",
+    "graphql-anywhere": "^4.2.4",
     "graphql-tag": "^2.10.1",
     "react": "^16.8.6",
     "react-apollo": "^2.5.6",
