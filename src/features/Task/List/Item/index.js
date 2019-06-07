@@ -1,8 +1,12 @@
 import React from "react";
 import gql from "graphql-tag";
-import { Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
-export const TaskListItem = ({ name }) => <Text>{name}</Text>;
+export const TaskListItem = ({ id, name, onPress }) => (
+  <TouchableOpacity onPress={() => onPress(id)}>
+    <Text>{name}</Text>
+  </TouchableOpacity>
+);
 
 TaskListItem.fragment = gql`
   fragment TaskListItemFragment on Task {
