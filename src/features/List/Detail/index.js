@@ -31,7 +31,14 @@ export class ListDetail extends React.Component {
             return <Text>Loading...</Text>;
           }
 
-          return <TaskList {...filter(TaskList.fragment, getList)} />;
+          return (
+            <TaskList
+              onItemPress={id =>
+                this.props.navigation.navigate("TaskDetail", { id })
+              }
+              {...filter(TaskList.fragment, getList)}
+            />
+          );
         }}
       </Query>
     );

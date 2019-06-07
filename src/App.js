@@ -7,6 +7,7 @@ import { Rehydrated } from "aws-appsync-react";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import awsConfig from "../aws-exports";
 import { ListDetail, ListSidebar } from "./features/List";
+import { TaskDetail } from "./features/Task";
 
 const client = new Client({
   url: awsConfig.aws_appsync_graphqlEndpoint,
@@ -23,6 +24,9 @@ const AppNavigator = createStackNavigator({
   },
   ListDetail: {
     screen: ListDetail
+  },
+  TaskDetail: {
+    screen: TaskDetail
   }
 });
 

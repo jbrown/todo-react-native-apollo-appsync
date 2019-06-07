@@ -3,10 +3,14 @@ import gql from "graphql-tag";
 import { filter } from "graphql-anywhere";
 import { TaskListItem } from "./Item";
 
-export const TaskList = ({ tasks: { items } }) => (
+export const TaskList = ({ onItemPress, tasks: { items } }) => (
   <>
     {items.map(item => (
-      <TaskListItem key={item.id} {...filter(TaskListItem.fragment, item)} />
+      <TaskListItem
+        key={item.id}
+        onPress={onItemPress}
+        {...filter(TaskListItem.fragment, item)}
+      />
     ))}
   </>
 );
